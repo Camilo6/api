@@ -25,6 +25,7 @@ app.get('/', (req, res)=>{
     res.send('Welcome to my API')
 })
 app.use('/api', routes)
+app.use('/reserva', routesR)
 
 // server running -----------------------------------
 app.listen(app.get('port'), ()=>{
