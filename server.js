@@ -4,7 +4,7 @@ const myconn = require('express-myconnection')
 const cors = require('cors')
 
 const routes = require('./routes')
-const routesR = require('./routes')
+const routesR = require('./routesR')
 
 const app = express()
 app.set('port', process.env.PORT || 9000)
