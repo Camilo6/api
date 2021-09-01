@@ -1,31 +1,14 @@
 ###
 GET http://localhost:9000/api HTTP/1.1
-GET http://localhost:9000/reserva HTTP/1.1
+GET http://localhost:6000/reserva HTTP/1.1
 ###
 POST http://localhost:9000/api HTTP/1.1
-POST http://localhost:9000/reserva HTTP/1.1
-Content-Type: application/json
-
-{
-    "nombre": "Andres Carne de res",
-    "descripcion": "restaurante parrilla",
-    "ciudad": "Bogota",
-    "URL_foto": "httpasddcrtyvtubinomkljhbvyuf6rctfvyguhbjk",
-    "direccion": "carrera1234 #34 sur",
-}
+POST http://localhost:6000/reserva HTTP/1.1
 
 ###
 DELETE http://localhost:9000/api/2 HTTP/1.1
-DELETE http://localhost:9000/reserva/2 HTTP/1.1
+DELETE http://localhost:6000/reserva/2 HTTP/1.1
 
 ###
 PUT http://localhost:9000/api/1 HTTP/1.1
-PUT http://localhost:9000/reserva/1 HTTP/1.1
-Content-Type: application/json
-
-{
-    "nombre": "Mexican food",
-    "descripcion": "restaurante bar comida mexicana",
-    "ciudad": "Bogota",
-    "URL_foto": "httpasddcrtyvtubinomkvyguhbjk",
-    "direccion": "carrera1234 #39 sur",
+PUT http://localhost:6000/reserva/1 HTTP/1.1
