@@ -24,7 +24,7 @@ routesR.post('/', (req, res)=>{
     })
 })
 
-routesR.delete('/:nombre', (req, res)=>{
+routesR.delete('/:id', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
         conn.query('DELETE FROM reserva WHERE id = ?', [req.params.id], (err, rows)=>{
@@ -35,7 +35,7 @@ routesR.delete('/:nombre', (req, res)=>{
     })
 })
 
-routesR.put('/:nombre', (req, res)=>{
+routesR.put('/:id', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
         conn.query('UPDATE reserva set ? WHERE id = ?', [req.body, req.params.id], (err, rows)=>{
