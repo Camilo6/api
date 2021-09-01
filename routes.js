@@ -1,5 +1,5 @@
 const express = require('express')
-const routes = express.Router()
+const routes = express.Router()z
 
 routes.get('/', (req, res)=>{
     req.getConnection((err, conn)=>{
@@ -24,7 +24,7 @@ routes.post('/', (req, res)=>{
     })
 })
 
-routes.delete('/:id', (req, res)=>{
+routes.delete('/:nombre', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
         conn.query('DELETE FROM restaurante WHERE id = ?', [req.params.nombre], (err, rows)=>{
@@ -35,10 +35,10 @@ routes.delete('/:id', (req, res)=>{
     })
 })
 
-routes.put('/:id', (req, res)=>{
+routes.put('/:nombre', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
-        conn.query('UPDATE restaurante set ? WHERE id = ?', [req.body, req.params.nombre], (err, rows)=>{
+        conn.query('UPDATE restaurante set ? WHERE nombre = ?', [req.body, req.params.nombre], (err, rows)=>{
             if(err) return res.send(err)
 
             res.send('restaurante actualizado!')
