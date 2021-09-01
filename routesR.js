@@ -16,7 +16,7 @@ routesR.get('/', (req, res)=>{
 routesR.post('/', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
-        count = conn.query('SELECT COUNT(restaurante) FROM reserva WHERE restaurante ?',[req.params.id] );
+        count = conn.query('SELECT COUNT(restaurante) FROM reserva WHERE restaurante ?',[req.params.restaurante] );
         if (count < 5) {
             conn.query('INSERT INTO reserva set ?', [req.body], (err, rows)=>{
                 if(err) return res.send(err)
