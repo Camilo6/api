@@ -1,7 +1,7 @@
 const express = require('express')
-const routesR = express.Router()
+const routes2 = express.Router()
 
-routesR.get('/', (req, res)=>{
+routes2.get('/', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
 
@@ -13,37 +13,37 @@ routesR.get('/', (req, res)=>{
     })
 })
 
-routesR.post('/', (req, res)=>{
+routes2.post('/', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
         conn.query('INSERT INTO reserva set ?', [req.body], (err, rows)=>{
             if(err) return res.send(err)
 
-            res.send('reserva agregada!')
+            res.send('reserva added!')
         })
     })
 })
 
-routesR.delete('/:id', (req, res)=>{
+routes2.delete('/:id', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
         conn.query('DELETE FROM reserva WHERE id = ?', [req.params.id], (err, rows)=>{
             if(err) return res.send(err)
 
-            res.send('reserva borrada!')
+            res.send('reserva excluded!')
         })
     })
 })
 
-routesR.put('/:id', (req, res)=>{
+routes2.put('/:id', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
         conn.query('UPDATE reserva set ? WHERE id = ?', [req.body, req.params.id], (err, rows)=>{
             if(err) return res.send(err)
 
-            res.send('reserva actualizada!')
+            res.send('reserva updated!')
         })
     })
 })
 
-module.exports = routesR
+module.exports = routes
