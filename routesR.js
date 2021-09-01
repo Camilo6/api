@@ -16,11 +16,17 @@ routesR.get('/', (req, res)=>{
 routesR.post('/', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err)
-        conn.query('INSERT INTO reserva set ?', [req.body], (err, rows)=>{
-            if(err) return res.send(err)
+        count = conn.query('SELECT COUNT(restaurante) FROM reserva WHERE restaurante ?',[req.params.id] );
+        if (count < 5) {
+            conn.query('INSERT INTO reserva set ?', [req.body], (err, rows)=>{
+                if(err) return res.send(err)
 
-            res.send('reserva added!')
-        })
+                res.send('reserva added!')
+            })
+        }
+        else {
+            res.send('Reservas llenas')
+        }
     })
 })
 
