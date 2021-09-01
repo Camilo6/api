@@ -1,5 +1,5 @@
 const express = require('express')
-const routes = express.Router()z
+const routes = express.Router()
 
 routes.get('/', (req, res)=>{
     req.getConnection((err, conn)=>{
